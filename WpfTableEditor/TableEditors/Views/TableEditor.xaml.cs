@@ -75,6 +75,8 @@ namespace WpfTableEditor.TableEditors
         private void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             this.viewModel = e.NewValue as ITableEditorViewModel;
+
+            // TODO: ViewModelからのアップデート時に発動しないようにメソッド化した方がよい
             this.worksheet.CellDataChanged -= CellDataChanged;
 
             this.worksheet.Rows = this.viewModel.RootItems.Count;

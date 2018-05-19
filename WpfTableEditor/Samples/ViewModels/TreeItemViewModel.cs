@@ -17,7 +17,7 @@ namespace WpfTableEditor
 
         public TreeItemViewModel(
             TreeItem model,
-            ColumnPropertyInfos<TreeItemViewModel>  columnPropertyInfos)
+            ColumnPropertyInfos<TreeItemViewModel> columnPropertyInfos)
         {
             this.Children = new ObservableCollection<ITreeItemViewModel>();
             this.model = model;

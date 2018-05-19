@@ -10,7 +10,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using unvell.ReoGrid.WpfTableEditor.Samples.ViewModels;
 using unvell.ReoGrid.WpfTableEditor.TableEditors.ViewModels.Core;
 
 namespace WpfTableEditor.TableEditors.ViewModels

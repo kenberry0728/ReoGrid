@@ -6,7 +6,6 @@
 //////////////////////////////////////////////////
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using unvell.ReoGrid.WpfTableEditor.Samples.ViewModels;
 using unvell.ReoGrid.WpfTableEditor.TableEditors.ViewModels.Core;
 using WpfTableEditor.TableEditors.ViewModels;
 
@@ -30,8 +29,6 @@ namespace WpfTableEditor
         public ITreeItemViewModel Parent { get; }
 
         public ObservableCollection<ITreeItemViewModel> Children { get; }
-
-        public IList<ICellValueProvider> CellValueProviders { get; }
 
         public string Name
         {

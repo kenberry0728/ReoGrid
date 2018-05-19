@@ -6,8 +6,6 @@
              xmlns:local="clr-namespace:WpfTableEditor.TableEditors"
              xmlns:vm="clr-namespace:WpfTableEditor.TableEditors.ViewModels"
              xmlns:reogrid="clr-namespace:unvell.ReoGrid;assembly=unvell.ReoGrid"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
-             d:DataContext="{d:DesignInstance {x:Type vm:ITableEditorViewModel}}">
+             mc:Ignorable="d">
     <reogrid:ReoGridControl x:Name="reoGridControl"/>
 </UserControl>

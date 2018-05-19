@@ -56,15 +56,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Samples\ViewModels\ICellValueProvider.cs" />
+    <Compile Include="Samples\ViewModels\NameCellValueProvider.cs" />
     <Compile Include="TableEditors\ViewModels\ColumnHeaderViewModel.cs" />
     <Compile Include="TableEditors\ViewModels\CellBodyType.cs" />
     <Compile Include="TableEditors\ViewModels\IColumnViewModel.cs" />
     <Compile Include="Samples\ViewModels\MainWindowViewModel.cs" />
-    <Compile Include="Samples\ViewModels\SampleTreeItemViewModel.cs" />
-    <Compile Include="Samples\Models\SampleTreeItem.cs" />
+    <Compile Include="Samples\ViewModels\TreeItemViewModel.cs" />
+    <Compile Include="Samples\Models\TreeItem.cs" />
     <Compile Include="TableEditors\ViewModels\ITableEditorViewModel.cs" />
     <Compile Include="TableEditors\ViewModels\ITreeItemViewModel.cs" />
-    <Compile Include="TableEditors\ViewModels\ICellValueProvider.cs" />
+    <Compile Include="TableEditors\ViewModels\NameCellValueProvider.cs" />
     <Compile Include="TableEditors\Views\TableEditor.xaml.cs">
       <DependentUpon>TableEditor.xaml</DependentUpon>
     </Compile>

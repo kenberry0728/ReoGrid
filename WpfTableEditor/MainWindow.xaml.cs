@@ -46,11 +46,11 @@ namespace WpfTableEditor
 
             var samples = new[] 
             {
-                new SampleTreeItem() { Name = "Dummy1" },
-                new SampleTreeItem() { Name = "Dummy2" }
+                new TreeItem() { Name = "Dummy1" },
+                new TreeItem() { Name = "Dummy2" }
             };
 
-            var sampleViewModels = samples.Select(s => new SampleTreeItemViewModel(s));
+            var sampleViewModels = samples.Select(s => new TreeItemViewModel(s));
 
             var tableEditorViewModel = new TableEditorViewModel(sampleViewModels, culumnHeaderViewModels);
             this.DataContext = new MainWindowViewModel(tableEditorViewModel);

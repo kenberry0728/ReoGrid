@@ -13,10 +13,10 @@ using System.Threading.Tasks;
 
 namespace WpfTableEditor
 {
-    internal class SampleTreeItem
+    internal class TreeItem
     {
         public string Name { get; set; }
 
-        public List<SampleTreeItem> Children { get; set; }
+        public List<TreeItem> Children { get; set; }
     }
 }

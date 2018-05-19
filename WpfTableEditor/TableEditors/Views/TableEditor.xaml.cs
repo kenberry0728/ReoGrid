@@ -40,12 +40,6 @@ namespace WpfTableEditor.TableEditors
 
             this.reoGridControl.SheetTabNewButtonVisible = false;
             this.reoGridControl.SheetTabVisible = false;
-
-            this.reoGridControl.ContextMenu = new ContextMenu();
-            this.reoGridControl.ColumnHeaderContextMenu = new ContextMenu();
-            this.reoGridControl.RowHeaderContextMenu = new ContextMenu();
-            this.reoGridControl.CellsContextMenu = new ContextMenu();
-
             this.worksheet = this.reoGridControl.Worksheets[0];
 
             this.DataContextChanged += this.OnDataContextChanged;
@@ -86,8 +80,12 @@ namespace WpfTableEditor.TableEditors
                 SetColumnHeaderProperties(this.worksheet.ColumnHeaders[i], this.viewModel.ColumnHeaders[i]);
             }
 
+            this.reoGridControl.ContextMenu = new ContextMenu();
+            this.reoGridControl.ColumnHeaderContextMenu = new ContextMenu();
+            this.reoGridControl.RowHeaderContextMenu = new ContextMenu();
+            this.reoGridControl.CellsContextMenu = new ContextMenu();
+            
             UpdateCellDataFromViewModel();
-
             UpdateSubscriptions();
         }
 

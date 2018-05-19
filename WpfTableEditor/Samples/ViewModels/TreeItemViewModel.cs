@@ -15,15 +15,13 @@ namespace WpfTableEditor
     {
         private readonly TreeItem model;
 
-        public TreeItemViewModel(TreeItem model)
+        public TreeItemViewModel(
+            TreeItem model,
+            ColumnPropertyInfos<TreeItemViewModel>  columnPropertyInfos)
         {
             this.Children = new ObservableCollection<ITreeItemViewModel>();
             this.model = model;
-            this.ColomnProperties = new ColumnProperties(
-                this,
-                nameof(this.Name),
-                nameof(this.Value),
-                nameof(this.IsConstant));
+            this.ColomnProperties = new ColumnProperties<TreeItemViewModel>(this, columnPropertyInfos);
         }
 
         public ITreeItemViewModel Parent { get; }
@@ -69,6 +67,6 @@ namespace WpfTableEditor
             }
         }
 
-        public ColumnProperties ColomnProperties { get; }
+        public IColumnProperties ColomnProperties { get; }
     }
 }

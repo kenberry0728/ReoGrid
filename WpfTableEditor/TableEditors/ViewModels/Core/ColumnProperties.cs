@@ -13,20 +13,19 @@ using System.Reflection;
 
 namespace unvell.ReoGrid.WpfTableEditor.TableEditors.ViewModels.Core
 {
-    public class ColumnProperties : IColumnProperties
+    public class ColumnProperties<T> : IColumnProperties
     {
         private readonly object parent;
-        private List<PropertyInfo> propertyInfos;
+        private readonly ColumnPropertyInfos<T> columnPropertyInfos;
 
-        public int Count => this.propertyInfos.Count;
+        public int Count => this.columnPropertyInfos.Count;
 
         public ColumnProperties(
             object propertyParent,
-            params string[] propertyNames)
+            ColumnPropertyInfos<T> columnPropertyInfos)
         {
             this.parent = propertyParent;
-            var type = propertyParent.GetType();
-            this.propertyInfos = propertyNames.Select(s => type.GetProperty(s)).ToList();
+            this.columnPropertyInfos = columnPropertyInfos;
 
             var notifyPropertyChanged = this.parent as INotifyPropertyChanged;
             if (notifyPropertyChanged != null)
@@ -42,8 +41,8 @@ namespace unvell.ReoGrid.WpfTableEditor.TableEditors.ViewModels.Core
 
         public object this[int i]
         {
-            get { return this.propertyInfos[i].GetValue(this.parent); }
-            set { this.propertyInfos[i].SetValue(this.parent, value); }
+            get { return this.columnPropertyInfos.PropertyInfos[i].GetValue(this.parent); }
+            set { this.columnPropertyInfos.PropertyInfos[i].SetValue(this.parent, value); }
         }
     }
 }

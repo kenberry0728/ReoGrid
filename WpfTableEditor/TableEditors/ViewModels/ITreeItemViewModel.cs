@@ -20,6 +20,6 @@ namespace WpfTableEditor.TableEditors.ViewModels
 
         ObservableCollection<ITreeItemViewModel> Children { get; }
 
-        ColumnProperties ColomnProperties { get;}
+        IColumnProperties ColomnProperties { get;}
     }
 }

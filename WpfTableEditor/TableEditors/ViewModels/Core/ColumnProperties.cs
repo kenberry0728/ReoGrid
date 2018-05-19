@@ -13,7 +13,7 @@ using System.Reflection;
 
 namespace unvell.ReoGrid.WpfTableEditor.TableEditors.ViewModels.Core
 {
-    public class ColumnProperties
+    public class ColumnProperties : IColumnProperties
     {
         private readonly object parent;
         private List<PropertyInfo> propertyInfos;

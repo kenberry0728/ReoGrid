@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{355FC23F-10C7-4101-896A-DA927DF5E45A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>WpfTableEditor</RootNamespace>
+    <RootNamespace>unvell.ReoGrid.WpfTableEditor</RootNamespace>
     <AssemblyName>WpfTableEditor</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -64,7 +64,7 @@
     <Compile Include="Samples\Models\SampleTreeItem.cs" />
     <Compile Include="TableEditors\ViewModels\ITableEditorViewModel.cs" />
     <Compile Include="TableEditors\ViewModels\ITreeItemViewModel.cs" />
-    <Compile Include="TableEditors\ViewModels\IValueProvider.cs" />
+    <Compile Include="TableEditors\ViewModels\ICellValueProvider.cs" />
     <Compile Include="TableEditors\Views\TableEditor.xaml.cs">
       <DependentUpon>TableEditor.xaml</DependentUpon>
     </Compile>

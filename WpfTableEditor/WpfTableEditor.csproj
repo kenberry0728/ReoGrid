@@ -71,7 +71,7 @@
     <Compile Include="TableEditors\Views\TableEditor.xaml.cs">
       <DependentUpon>TableEditor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\TableEditorViewModel.cs" />
+    <Compile Include="TableEditors\ViewModels\TableEditorViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

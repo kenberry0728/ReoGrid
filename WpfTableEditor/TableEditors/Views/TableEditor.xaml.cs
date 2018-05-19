@@ -56,6 +56,15 @@ namespace WpfTableEditor.TableEditors
                 SetColumnHeaderProperties(this.worksheet.ColumnHeaders[i], this.viewModel.ColumnHeaders[i]);
             }
 
+            for (var i = 0; i < this.viewModel.RootItems.Count; i++)
+            {
+                var item = this.viewModel.RootItems[i];
+                for (int j = 0; j < item.CellValueProviders.Count; j++)
+                {
+                    this.worksheet[i, j] = item.CellValueProviders[j].GetValue(item);
+                }
+            }
+
             UpdateSubscriptions();
         }
 

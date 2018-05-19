@@ -56,9 +56,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Samples\ViewModels\Implementations\ConstantCellValueProvider.cs" />
     <Compile Include="TableEditors\ViewModels\Core\ICellValueProvider.cs" />
     <Compile Include="Samples\ViewModels\ItemViewModel.cs" />
-    <Compile Include="Samples\ViewModels\NameCellValueProvider.cs" />
+    <Compile Include="Samples\ViewModels\Implementations\NameCellValueProvider.cs" />
     <Compile Include="TableEditors\ViewModels\ColumnHeaderViewModel.cs" />
     <Compile Include="TableEditors\Core\CellBodyType.cs" />
     <Compile Include="TableEditors\ViewModels\IColumnViewModel.cs" />

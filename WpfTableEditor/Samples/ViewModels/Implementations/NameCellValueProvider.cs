@@ -9,25 +9,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WpfTableEditor;
 using WpfTableEditor.TableEditors.ViewModels;
 
 namespace unvell.ReoGrid.WpfTableEditor.Samples.ViewModels
 {
-    public abstract class CellValueProviderBase<T, U> : ICellValueProvider
-        where T : class,ITreeItemViewModel
+    internal class ConstantCellValueProvider : CellValueProviderBase<TreeItemViewModel, bool>
     {
-        public object GetValue(ITreeItemViewModel treeItemViewModel)
+        protected override object GetValue(TreeItemViewModel treeItemViewModel)
         {
-            return this.GetValue(treeItemViewModel as T);
-        }
-        
-        public void SetValue(ITreeItemViewModel treeItemViewModel, object value)
-        {
-            this.SetValue(treeItemViewModel as T, (U)value);
+            return treeItemViewModel.ItemViewModel.IsConstant;
         }
 
-        protected abstract object GetValue(T treeItemViewModel);
-
-        protected abstract void SetValue(T treeItemViewModel, U value);
+        protected override void SetValue(TreeItemViewModel treeItemViewModel, bool value)
+        {
+            treeItemViewModel.ItemViewModel.IsConstant = value;
+        }
     }
 }

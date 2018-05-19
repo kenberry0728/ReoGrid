@@ -17,6 +17,10 @@ namespace WpfTableEditor
     {
         public string Name { get; set; }
 
+        public object Value { get; set; }
+
+        public bool IsConstant { get; set; }
+
         public List<TreeItem> Children { get; set; }
     }
 }

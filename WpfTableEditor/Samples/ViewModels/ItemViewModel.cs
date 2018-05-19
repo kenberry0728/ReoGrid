@@ -28,5 +28,11 @@ namespace unvell.ReoGrid.WpfTableEditor.Samples.ViewModels
             get { return model.Name; }
             set { this.model.Name = value; }
         }
+
+        public bool IsConstant
+        {
+            get { return model.IsConstant; }
+            set { this.model.IsConstant = value; }
+        }
     }
 }

@@ -57,6 +57,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Samples\ViewModels\Implementations\ConstantCellValueProvider.cs" />
+    <Compile Include="Samples\ViewModels\Implementations\ValueCellValueProvider.cs" />
     <Compile Include="TableEditors\ViewModels\Core\ICellValueProvider.cs" />
     <Compile Include="Samples\ViewModels\ItemViewModel.cs" />
     <Compile Include="Samples\ViewModels\Implementations\NameCellValueProvider.cs" />

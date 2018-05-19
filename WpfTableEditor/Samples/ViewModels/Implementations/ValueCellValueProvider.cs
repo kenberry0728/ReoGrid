@@ -8,16 +8,16 @@ using WpfTableEditor;
 
 namespace unvell.ReoGrid.WpfTableEditor.Samples.ViewModels
 {
-    internal class NameCellValueProvider : CellValueProviderBase<TreeItemViewModel, string>
+    internal class ValueCellValueProvider : CellValueProviderBase<TreeItemViewModel, object>
     {
         protected override object GetValue(TreeItemViewModel treeItemViewModel)
         {
-            return treeItemViewModel.ItemViewModel.Name;
+            return treeItemViewModel.ItemViewModel.Value;
         }
 
-        protected override void SetValue(TreeItemViewModel treeItemViewModel, string value)
+        protected override void SetValue(TreeItemViewModel treeItemViewModel, object value)
         {
-            treeItemViewModel.ItemViewModel.Name = value;
+            treeItemViewModel.ItemViewModel.Value = value;
         }
     }
 }

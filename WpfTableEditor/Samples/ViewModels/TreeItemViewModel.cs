@@ -21,7 +21,12 @@ namespace WpfTableEditor
         {
             this.ItemViewModel = itemViewModel;
             this.Children = new ObservableCollection<ITreeItemViewModel>();
-            this.CellValueProviders = new List<ICellValueProvider> { new NameCellValueProvider() };
+            this.CellValueProviders = new List<ICellValueProvider>
+            {
+                new NameCellValueProvider(),
+                new ValueCellValueProvider(),
+                new ConstantCellValueProvider()
+            };
         }
 
         public ITreeItemViewModel Parent { get; }

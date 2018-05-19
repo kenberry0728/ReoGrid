@@ -85,7 +85,7 @@ namespace WpfTableEditor.TableEditors
 
             this.reoGridControl.ContextMenu = contextMenu;
             this.reoGridControl.ColumnHeaderContextMenu = contextMenu;
-            this.reoGridControl.RowHeaderContextMenu = contextMenu;
+            this.reoGridControl.RowHeaderContextMenu = this.viewModel.GetRowHeaderContextMenuInfos();
             this.reoGridControl.CellsContextMenu = contextMenu;
 
             UpdateCellDataFromViewModel();

@@ -49,6 +49,8 @@ namespace WpfTableEditor.TableEditors
             this.worksheet = this.reoGridControl.Worksheets[0];
 
             this.DataContextChanged += this.OnDataContextChanged;
+
+            //this.worksheet.InsertRows()
         }
 
         private void CellDataChanged(object sender, CellEventArgs e)
@@ -77,7 +79,6 @@ namespace WpfTableEditor.TableEditors
             this.viewModel = e.NewValue as ITableEditorViewModel;
 
             // TODO: ViewModelからのアップデート時に発動しないようにメソッド化した方がよい
-            this.worksheet.CellDataChanged -= CellDataChanged;
 
             this.worksheet.Rows = this.viewModel.RootItems.Count;
             this.worksheet.Columns = this.viewModel.ColumnHeaders.Count;
@@ -86,6 +87,15 @@ namespace WpfTableEditor.TableEditors
             {
                 SetColumnHeaderProperties(this.worksheet.ColumnHeaders[i], this.viewModel.ColumnHeaders[i]);
             }
+
+            UpdateCellDataFromViewModel();
+
+            UpdateSubscriptions();
+        }
+
+        private void UpdateCellDataFromViewModel()
+        {
+            this.worksheet.CellDataChanged -= CellDataChanged;
 
             for (var i = 0; i < this.viewModel.RootItems.Count; i++)
             {
@@ -96,7 +106,7 @@ namespace WpfTableEditor.TableEditors
                 }
             }
 
-            UpdateSubscriptions();
+            this.worksheet.CellDataChanged += CellDataChanged;
         }
 
         private static void SetColumnHeaderProperties(ColumnHeader columnHeader, IColumnViewModel columnHeaderViewModel)
@@ -124,7 +134,6 @@ namespace WpfTableEditor.TableEditors
 
             this.viewModel.RootItems.CollectionChanged += RootItemsCollectionChanged;
 
-            this.worksheet.CellDataChanged += CellDataChanged;
         }
 
         private void RootItemsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)

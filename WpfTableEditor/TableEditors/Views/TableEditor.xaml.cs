@@ -7,6 +7,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using unvell.ReoGrid;
+using unvell.ReoGrid.Events;
 using WpfTableEditor.TableEditors.ViewModels;
 
 namespace WpfTableEditor.TableEditors
@@ -41,7 +43,31 @@ namespace WpfTableEditor.TableEditors
 
             this.worksheet = this.reoGridControl.Worksheets[0];
 
+            this.worksheet.CellDataChanged += CellDataChanged;
+
             this.DataContextChanged += this.OnDataContextChanged;
+        }
+
+        private void CellDataChanged(object sender, CellEventArgs e)
+        {
+            var row = e.Cell.Row;
+            var column = e.Cell.Column;
+
+            if (this.viewModel.RootItems.Count <= row)
+            {
+                Debug.Assert(false, "Out of Range");
+                return;
+            }
+
+            var rootItem = this.viewModel.RootItems[row];
+            if (rootItem.CellValueProviders.Count <= column)
+            {
+                Debug.Assert(false, "Out of Range");
+                return;
+            }
+
+            var valueProvider = rootItem.CellValueProviders[column];
+            valueProvider.SetValue(rootItem, e.Cell.Data);
         }
 
         private void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)

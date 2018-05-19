@@ -42,7 +42,6 @@ namespace WpfTableEditor.TableEditors
             this.reoGridControl.SheetTabVisible = false;
 
             this.worksheet = this.reoGridControl.Worksheets[0];
-
             this.worksheet.CellDataChanged += CellDataChanged;
 
             this.DataContextChanged += this.OnDataContextChanged;

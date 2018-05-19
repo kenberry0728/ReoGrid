@@ -56,7 +56,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="TableEditors\ViewModels\ICellValueProvider.cs" />
+    <Compile Include="TableEditors\ViewModels\Core\ICellValueProvider.cs" />
     <Compile Include="Samples\ViewModels\ItemViewModel.cs" />
     <Compile Include="Samples\ViewModels\NameCellValueProvider.cs" />
     <Compile Include="TableEditors\ViewModels\ColumnHeaderViewModel.cs" />
@@ -67,7 +67,7 @@
     <Compile Include="Samples\Models\TreeItem.cs" />
     <Compile Include="TableEditors\ViewModels\ITableEditorViewModel.cs" />
     <Compile Include="TableEditors\ViewModels\ITreeItemViewModel.cs" />
-    <Compile Include="TableEditors\ViewModels\CellValueProviderBase.cs" />
+    <Compile Include="TableEditors\ViewModels\Core\CellValueProviderBase.cs" />
     <Compile Include="TableEditors\Views\TableEditor.xaml.cs">
       <DependentUpon>TableEditor.xaml</DependentUpon>
     </Compile>

@@ -1,6 +1,6 @@
 ﻿namespace WpfTableEditor.TableEditors.ViewModels
 {
-    internal interface ICellValueProvider
+    public interface ICellValueProvider
     {
     }
 }

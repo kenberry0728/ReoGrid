@@ -13,6 +13,6 @@ namespace WpfTableEditor.TableEditors.ViewModels
         
         ObservableCollection<ITreeItemViewModel> Children { get; }
 
-        List<ICellValueProvider> 
+        IList<ICellValueProvider> CellValueProviders { get; }
     }
 }

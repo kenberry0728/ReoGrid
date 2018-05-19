@@ -18,6 +18,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using unvell.ReoGrid.WpfTableEditor.Samples.ViewModels;
 using WpfTableEditor.Samples.ViewModels;
 using WpfTableEditor.TableEditors.ViewModels;
 
@@ -50,7 +51,7 @@ namespace WpfTableEditor
                 new TreeItem() { Name = "Dummy2" }
             };
 
-            var sampleViewModels = samples.Select(s => new TreeItemViewModel(s));
+            var sampleViewModels = samples.Select(s => new TreeItemViewModel(new ItemViewModel(s)));
 
             var tableEditorViewModel = new TableEditorViewModel(sampleViewModels, culumnHeaderViewModels);
             this.DataContext = new MainWindowViewModel(tableEditorViewModel);

@@ -12,13 +12,13 @@ namespace unvell.ReoGrid.WpfTableEditor.Samples.ViewModels
     {
         object GetValue(ITreeItemViewModel treeItemViewModel);
 
-        void SetValue(ITreeItemViewModel treeItemViewModel);
+        void SetValue(ITreeItemViewModel treeItemViewModel, object value);
     }
 
-    public interface ICellValueProvider<T> where T : ITreeItemViewModel
+    public interface ICellValueProvider<T, U> where T : ITreeItemViewModel
     {
         object GetValue(T treeItemViewModel);
 
-        void SetValue(T treeItemViewModel);
+        void SetValue(T treeItemViewModel, U value);
     }
 }

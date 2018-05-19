@@ -57,6 +57,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Samples\ViewModels\ICellValueProvider.cs" />
+    <Compile Include="Samples\ViewModels\ItemViewModel.cs" />
     <Compile Include="Samples\ViewModels\NameCellValueProvider.cs" />
     <Compile Include="TableEditors\ViewModels\ColumnHeaderViewModel.cs" />
     <Compile Include="TableEditors\ViewModels\CellBodyType.cs" />

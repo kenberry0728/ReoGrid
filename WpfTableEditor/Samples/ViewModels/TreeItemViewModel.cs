@@ -17,11 +17,9 @@ namespace WpfTableEditor
 {
     internal class TreeItemViewModel : ITreeItemViewModel
     {
-        private readonly TreeItem treeItem;
-
-        public TreeItemViewModel(TreeItem sampleTreeItem)
+        public TreeItemViewModel(ItemViewModel itemViewModel)
         {
-            this.treeItem = sampleTreeItem;
+            this.ItemViewModel = itemViewModel;
             this.Children = new ObservableCollection<ITreeItemViewModel>();
             this.CellValueProviders = new List<ICellValueProvider> { new NameCellValueProvider() };
         }
@@ -31,5 +29,7 @@ namespace WpfTableEditor
         public ObservableCollection<ITreeItemViewModel> Children { get; }
 
         public IList<ICellValueProvider> CellValueProviders { get; }
+
+        public ItemViewModel ItemViewModel { get; }
     }
 }

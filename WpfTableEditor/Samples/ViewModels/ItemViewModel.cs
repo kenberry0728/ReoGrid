@@ -4,26 +4,29 @@
 // This software is released under the MIT License.
 // http://opensource.org/licenses/mit-license.php
 //////////////////////////////////////////////////
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WpfTableEditor;
-using WpfTableEditor.TableEditors.ViewModels;
 
 namespace unvell.ReoGrid.WpfTableEditor.Samples.ViewModels
 {
-    internal class NameCellValueProvider : CellValueProviderBase<TreeItemViewModel, string>
+    internal class ItemViewModel
     {
-        protected override object GetValue(TreeItemViewModel treeItemViewModel)
+        private readonly TreeItem model;
+
+        public ItemViewModel(TreeItem model)
         {
-            return treeItemViewModel.ItemViewModel.Name;
+            this.model = model;
         }
 
-        protected override void SetValue(TreeItemViewModel treeItemViewModel, string value)
+        public string Name
         {
-            treeItemViewModel.ItemViewModel.Name = value;
+            get { return model.Name; }
+            set { this.model.Name = value; }
         }
     }
 }

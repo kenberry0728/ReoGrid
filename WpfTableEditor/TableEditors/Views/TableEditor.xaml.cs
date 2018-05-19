@@ -80,11 +80,14 @@ namespace WpfTableEditor.TableEditors
                 SetColumnHeaderProperties(this.worksheet.ColumnHeaders[i], this.viewModel.ColumnHeaders[i]);
             }
 
-            this.reoGridControl.ContextMenu = new ContextMenu();
-            this.reoGridControl.ColumnHeaderContextMenu = new ContextMenu();
-            this.reoGridControl.RowHeaderContextMenu = new ContextMenu();
-            this.reoGridControl.CellsContextMenu = new ContextMenu();
-            
+            var contextMenu = new ContextMenu();
+            contextMenu.Items.Add(new MenuItem() { Header = "Test" });
+
+            this.reoGridControl.ContextMenu = contextMenu;
+            this.reoGridControl.ColumnHeaderContextMenu = contextMenu;
+            this.reoGridControl.RowHeaderContextMenu = contextMenu;
+            this.reoGridControl.CellsContextMenu = contextMenu;
+
             UpdateCellDataFromViewModel();
             UpdateSubscriptions();
         }

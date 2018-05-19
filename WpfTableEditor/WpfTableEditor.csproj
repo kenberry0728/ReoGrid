@@ -66,7 +66,7 @@
     <Compile Include="Samples\Models\TreeItem.cs" />
     <Compile Include="TableEditors\ViewModels\ITableEditorViewModel.cs" />
     <Compile Include="TableEditors\ViewModels\ITreeItemViewModel.cs" />
-    <Compile Include="TableEditors\ViewModels\NameCellValueProvider.cs" />
+    <Compile Include="TableEditors\ViewModels\CellValueProviderBase.cs" />
     <Compile Include="TableEditors\Views\TableEditor.xaml.cs">
       <DependentUpon>TableEditor.xaml</DependentUpon>
     </Compile>

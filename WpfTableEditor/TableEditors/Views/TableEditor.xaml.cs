@@ -78,8 +78,6 @@ namespace WpfTableEditor.TableEditors
         {
             this.viewModel = e.NewValue as ITableEditorViewModel;
 
-            // TODO: ViewModelからのアップデート時に発動しないようにメソッド化した方がよい
-
             this.worksheet.Rows = this.viewModel.RootItems.Count;
             this.worksheet.Columns = this.viewModel.ColumnHeaders.Count;
 

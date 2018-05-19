@@ -51,7 +51,7 @@ namespace WpfTableEditor
                 new TreeItem() { Name = "Dummy2" }
             };
 
-            var sampleViewModels = samples.Select(s => new TreeItemViewModel(new ItemViewModel(s)));
+            var sampleViewModels = samples.Select(s => new TreeItemViewModel(s));
 
             var tableEditorViewModel = new TableEditorViewModel(sampleViewModels, culumnHeaderViewModels);
             this.DataContext = new MainWindowViewModel(tableEditorViewModel);

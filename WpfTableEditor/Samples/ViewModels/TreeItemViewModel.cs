@@ -7,22 +7,24 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using unvell.ReoGrid.WpfTableEditor.Samples.ViewModels;
+using unvell.ReoGrid.WpfTableEditor.TableEditors.ViewModels.Core;
 using WpfTableEditor.TableEditors.ViewModels;
 
 namespace WpfTableEditor
 {
     internal class TreeItemViewModel : ITreeItemViewModel
     {
-        public TreeItemViewModel(ItemViewModel itemViewModel)
+        private readonly TreeItem model;
+
+        public TreeItemViewModel(TreeItem model)
         {
-            this.ItemViewModel = itemViewModel;
             this.Children = new ObservableCollection<ITreeItemViewModel>();
-            this.CellValueProviders = new List<ICellValueProvider>
-            {
-                new NameCellValueProvider(),
-                new ValueCellValueProvider(),
-                new ConstantCellValueProvider()
-            };
+            this.model = model;
+            this.ColomnProperties = new ColumnProperties(
+                this,
+                nameof(this.Name),
+                nameof(this.Value),
+                nameof(this.IsConstant));
         }
 
         public ITreeItemViewModel Parent { get; }
@@ -31,6 +33,45 @@ namespace WpfTableEditor
 
         public IList<ICellValueProvider> CellValueProviders { get; }
 
-        public ItemViewModel ItemViewModel { get; }
+        public string Name
+        {
+            get
+            {
+                return this.model.Name;
+            }
+
+            set
+            {
+                this.model.Name = value;
+            }
+        }
+
+        public object Value
+        {
+            get
+            {
+                return this.model.Value;
+            }
+
+            set
+            {
+                this.model.Value = value;
+            }
+        }
+
+        public bool IsConstant
+        {
+            get
+            {
+                return this.model.IsConstant;
+            }
+
+            set
+            {
+                this.model.IsConstant = value;
+            }
+        }
+
+        public ColumnProperties ColomnProperties { get; }
     }
 }

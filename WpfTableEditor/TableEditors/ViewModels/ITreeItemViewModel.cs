@@ -11,15 +11,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using unvell.ReoGrid.WpfTableEditor.Samples.ViewModels;
+using unvell.ReoGrid.WpfTableEditor.TableEditors.ViewModels.Core;
 
 namespace WpfTableEditor.TableEditors.ViewModels
 {
     public interface ITreeItemViewModel
     {
         ITreeItemViewModel Parent { get; }
-        
+
         ObservableCollection<ITreeItemViewModel> Children { get; }
 
-        IList<ICellValueProvider> CellValueProviders { get; }
+        ColumnProperties ColomnProperties { get;}
     }
 }

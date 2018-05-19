@@ -47,7 +47,6 @@ namespace WpfTableEditor.TableEditors
             this.reoGridControl.CellsContextMenu = new ContextMenu();
 
             this.worksheet = this.reoGridControl.Worksheets[0];
-            this.worksheet.CellDataChanged += CellDataChanged;
 
             this.DataContextChanged += this.OnDataContextChanged;
         }
@@ -64,19 +63,19 @@ namespace WpfTableEditor.TableEditors
             }
 
             var rootItem = this.viewModel.RootItems[row];
-            if (rootItem.CellValueProviders.Count <= column)
+            if (rootItem.ColomnProperties.Count <= column)
             {
                 Debug.Assert(false, "Out of Range");
                 return;
             }
 
-            var valueProvider = rootItem.CellValueProviders[column];
-            valueProvider.SetValue(rootItem, e.Cell.Data);
+            rootItem.ColomnProperties[column] = e.Cell.Data;
         }
 
         private void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             this.viewModel = e.NewValue as ITableEditorViewModel;
+            this.worksheet.CellDataChanged -= CellDataChanged;
 
             this.worksheet.Rows = this.viewModel.RootItems.Count;
             this.worksheet.Columns = this.viewModel.ColumnHeaders.Count;
@@ -89,9 +88,9 @@ namespace WpfTableEditor.TableEditors
             for (var i = 0; i < this.viewModel.RootItems.Count; i++)
             {
                 var item = this.viewModel.RootItems[i];
-                for (int j = 0; j < item.CellValueProviders.Count; j++)
+                for (int j = 0; j < item.ColomnProperties.Count; j++)
                 {
-                    this.worksheet[i, j] = item.CellValueProviders[j].GetValue(item);
+                    this.worksheet[i, j] = item.ColomnProperties[j];
                 }
             }
 
@@ -122,6 +121,8 @@ namespace WpfTableEditor.TableEditors
             }
 
             this.viewModel.RootItems.CollectionChanged += RootItemsCollectionChanged;
+
+            this.worksheet.CellDataChanged += CellDataChanged;
         }
 
         private void RootItemsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)

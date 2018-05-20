@@ -4,7 +4,10 @@
 // This software is released under the MIT License.
 // http://opensource.org/licenses/mit-license.php
 //////////////////////////////////////////////////
-namespace WpfTableEditor.TableEditors.ViewModels
+
+using unvell.ReoGrid.WpfTableEditor.TableEditors.Core;
+
+namespace unvell.ReoGrid.WpfTableEditor.TableEditors.ViewModels
 {
     public interface IColumnViewModel
     {

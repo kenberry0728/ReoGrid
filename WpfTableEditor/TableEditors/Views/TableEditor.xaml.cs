@@ -4,29 +4,18 @@
 // This software is released under the MIT License.
 // http://opensource.org/licenses/mit-license.php
 //////////////////////////////////////////////////
+
 using System;
-using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using unvell.ReoGrid;
 using unvell.ReoGrid.Events;
 using unvell.ReoGrid.WpfTableEditor.TableEditors.Core;
+using unvell.ReoGrid.WpfTableEditor.TableEditors.ViewModels;
 using unvell.ReoGrid.WpfTableEditor.TableEditors.ViewModels.Core;
-using WpfTableEditor.TableEditors.ViewModels;
 
-namespace WpfTableEditor.TableEditors
+namespace unvell.ReoGrid.WpfTableEditor.TableEditors.Views
 {
     /// <summary>
     /// TableEditor.xaml の相互作用ロジック

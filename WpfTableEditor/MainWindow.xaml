@@ -1,13 +1,13 @@
-﻿<Window x:Class="WpfTableEditor.MainWindow"
+﻿<Window x:Class="unvell.ReoGrid.WpfTableEditor.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfTableEditor"
-        xmlns:tableeditors="clr-namespace:WpfTableEditor.TableEditors"
+        xmlns:views="clr-namespace:unvell.ReoGrid.WpfTableEditor.TableEditors.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     
-    <tableeditors:TableEditor DataContext="{Binding TableEditorViewModel}">
-    </tableeditors:TableEditor>
+    <views:TableEditor DataContext="{Binding TableEditorViewModel}">
+    </views:TableEditor>
 </Window>
+

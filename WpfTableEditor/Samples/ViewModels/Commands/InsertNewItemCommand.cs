@@ -6,8 +6,8 @@
 //////////////////////////////////////////////////
 using System;
 using System.Windows.Input;
+using unvell.ReoGrid.WpfTableEditor.TableEditors.ViewModels;
 using unvell.ReoGrid.WpfTableEditor.TableEditors.ViewModels.Core;
-using WpfTableEditor.TableEditors.ViewModels;
 
 namespace unvell.ReoGrid.WpfTableEditor.Samples.ViewModels.Commands
 {

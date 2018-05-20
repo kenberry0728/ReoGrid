@@ -4,12 +4,13 @@
 // This software is released under the MIT License.
 // http://opensource.org/licenses/mit-license.php
 //////////////////////////////////////////////////
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using unvell.ReoGrid.WpfTableEditor.TableEditors.ViewModels.Core;
-using WpfTableEditor.TableEditors.ViewModels;
 
-namespace WpfTableEditor
+using System.Collections.ObjectModel;
+using unvell.ReoGrid.WpfTableEditor.Samples.Models;
+using unvell.ReoGrid.WpfTableEditor.TableEditors.ViewModels;
+using unvell.ReoGrid.WpfTableEditor.TableEditors.ViewModels.Core;
+
+namespace unvell.ReoGrid.WpfTableEditor.Samples.ViewModels
 {
     internal class TreeItemViewModel : ITreeItemViewModel
     {

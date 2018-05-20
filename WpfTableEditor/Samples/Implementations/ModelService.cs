@@ -5,16 +5,14 @@
 // http://opensource.org/licenses/mit-license.php
 //////////////////////////////////////////////////
 
-using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using unvell.ReoGrid.WpfTableEditor.Samples.Core;
-using WpfTableEditor;
+using unvell.ReoGrid.WpfTableEditor.Samples.Models;
+using unvell.ReoGrid.WpfTableEditor.TableEditors.Core;
 
-namespace unvell.ReoGrid.WpfTableEditor.Samples.ModelServices
+namespace unvell.ReoGrid.WpfTableEditor.Samples.Implementations
 {
     internal class ModelService : IModelService<TreeItem>
     {

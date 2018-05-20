@@ -6,7 +6,6 @@
 //////////////////////////////////////////////////
 using System.Collections.Generic;
 using unvell.ReoGrid.WpfTableEditor.TableEditors.Core;
-using WpfTableEditor.TableEditors.ViewModels;
 
 namespace unvell.ReoGrid.WpfTableEditor.TableEditors.ViewModels.Core
 {

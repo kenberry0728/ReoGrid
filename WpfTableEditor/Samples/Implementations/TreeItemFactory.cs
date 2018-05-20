@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using unvell.ReoGrid.WpfTableEditor.Samples.Core;
-using WpfTableEditor;
+using unvell.ReoGrid.WpfTableEditor.Samples.Models;
 
 namespace unvell.ReoGrid.WpfTableEditor.Samples.Implementations
 {

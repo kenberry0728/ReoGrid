@@ -8,7 +8,7 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 
-namespace unvell.ReoGrid.WpfTableEditor.Samples.Core
+namespace unvell.ReoGrid.WpfTableEditor.TableEditors.Core
 {
     public interface IModelService<T>
     {

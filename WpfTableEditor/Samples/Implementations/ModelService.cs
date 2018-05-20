@@ -33,13 +33,13 @@ namespace unvell.ReoGrid.WpfTableEditor.Samples.ModelServices
 
         public IEnumerable<TreeItem> Members => members;
 
-        public TreeItem InsertNewItem(int index)
+        public TreeItem InsertNewItem(object sender,int index)
         {
             var newItem = this.treeItemFactory.CreateNew();
             this.members.Insert(index, newItem);
 
             var args = new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, new List<TreeItem>() { newItem }, index);
-            this.CollectionChanged(this, args);
+            this.CollectionChanged(sender, args);
             return newItem;
         }
     }

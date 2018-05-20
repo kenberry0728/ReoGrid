@@ -14,7 +14,7 @@ namespace unvell.ReoGrid.WpfTableEditor.Samples.Core
     {
         IEnumerable<T> Members { get; }
 
-        T InsertNewItem(int index);
+        T InsertNewItem(object sender,int index);
 
         event NotifyCollectionChangedEventHandler CollectionChanged;
     }

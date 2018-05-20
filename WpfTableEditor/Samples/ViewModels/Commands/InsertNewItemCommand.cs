@@ -35,7 +35,7 @@ namespace unvell.ReoGrid.WpfTableEditor.Samples.ViewModels.Commands
                 return;
             }
 
-            tableEditorViewModel.ModelService.InsertNewItem(rowHeaderContextMenuParameter.Index);
+            tableEditorViewModel.ModelService.InsertNewItem(this.tableEditorViewModel, rowHeaderContextMenuParameter.Index);
         }
     }
 }

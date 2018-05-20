@@ -29,9 +29,9 @@ namespace WpfTableEditor
 
         public IReadOnlyList<IColumnViewModel> ColumnHeaders { get; }
 
-        public IEnumerable<ContextMenuInfo> GetRowHeaderContextMenuInfos()
+        public virtual IEnumerable<ContextMenuInfo> GetRowHeaderContextMenuInfos()
         {
-            yield return new ContextMenuInfo("Insert", null);
+            return Enumerable.Empty<ContextMenuInfo>();
         }
     }
 }

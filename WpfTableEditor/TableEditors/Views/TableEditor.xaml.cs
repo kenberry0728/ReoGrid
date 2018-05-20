@@ -45,15 +45,12 @@ namespace WpfTableEditor.TableEditors
             this.worksheet = this.reoGridControl.Worksheets[0];
 
             this.DataContextChanged += this.OnDataContextChanged;
+
+            //this.worksheet.InsertRows()
         }
 
         private void CellDataChanged(object sender, CellEventArgs e)
         {
-            if (sender == this)
-            {
-                return;
-            }
-
             var row = e.Cell.Row;
             var column = e.Cell.Column;
 
@@ -70,7 +67,6 @@ namespace WpfTableEditor.TableEditors
                 return;
             }
 
-            // add sender
             rootItem.ColomnProperties[column] = e.Cell.Data;
         }
 
@@ -137,6 +133,8 @@ namespace WpfTableEditor.TableEditors
 
             this.worksheet.CellDataChanged += CellDataChanged;
         }
+
+
 
         private static void SetColumnHeaderProperties(ColumnHeader columnHeader, IColumnViewModel columnHeaderViewModel)
         {

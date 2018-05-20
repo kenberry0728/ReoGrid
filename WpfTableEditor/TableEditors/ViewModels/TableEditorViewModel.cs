@@ -10,6 +10,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using unvell.ReoGrid.WpfTableEditor.TableEditors.Core;
 using WpfTableEditor.TableEditors.ViewModels;
 
 namespace WpfTableEditor
@@ -27,5 +28,10 @@ namespace WpfTableEditor
         public ObservableCollection<ITreeItemViewModel> RootItems { get; }
 
         public IReadOnlyList<IColumnViewModel> ColumnHeaders { get; }
+
+        public IEnumerable<ContextMenuInfo> GetRowHeaderContextMenuInfos()
+        {
+            yield return new ContextMenuInfo("Insert", null);
+        }
     }
 }

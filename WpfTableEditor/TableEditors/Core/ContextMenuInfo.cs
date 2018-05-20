@@ -12,9 +12,21 @@ namespace unvell.ReoGrid.WpfTableEditor.TableEditors.Core
 {
     public class ContextMenuInfo
     {
-        public string Header { get; set; }
+        public ContextMenuInfo(string header, ICommand command)
+        {
+            this.Header = header;
+            this.Command = command;
+        }
 
-        public ICommand Command { get; set; }
+        public ContextMenuInfo(string header, ICommand command, IEnumerable<ContextMenuInfo> children)
+        {
+            this.Header = header;
+            this.Command = command;
+        }
+
+        public string Header { get; }
+
+        public ICommand Command { get; }
 
         public IEnumerable<ContextMenuInfo> Children { get; set; }
     }

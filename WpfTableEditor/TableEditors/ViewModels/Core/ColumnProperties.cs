@@ -4,12 +4,8 @@
 // This software is released under the MIT License.
 // http://opensource.org/licenses/mit-license.php
 //////////////////////////////////////////////////
-using System;
-using System.Collections;
-using System.Collections.Generic;
+
 using System.ComponentModel;
-using System.Linq;
-using System.Reflection;
 
 namespace unvell.ReoGrid.WpfTableEditor.TableEditors.ViewModels.Core
 {

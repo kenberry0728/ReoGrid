@@ -72,7 +72,7 @@ namespace unvell.ReoGrid.WpfTableEditor.TableEditors.Views
             }
 
             var contextMenu = new ContextMenu();
-            contextMenu.Items.Add(new MenuItem() { Header = "Test" });
+            contextMenu.Items.Add(new MenuItem { Header = "Test" });
 
             this.reoGridControl.ContextMenu = contextMenu;
             this.reoGridControl.ColumnHeaderContextMenu = contextMenu;
@@ -85,7 +85,7 @@ namespace unvell.ReoGrid.WpfTableEditor.TableEditors.Views
 
         private RowHeaderContextMenuParameter CreateRowHeaderContextMenuParameter()
         {
-            return new RowHeaderContextMenuParameter()
+            return new RowHeaderContextMenuParameter
             {
                 Index = this.worksheet.SelectionRange.Row
             };

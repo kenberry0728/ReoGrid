@@ -36,7 +36,7 @@ namespace unvell.ReoGrid.WpfTableEditor.Samples.Implementations
             var newItem = this.treeItemFactory.CreateNew();
             this.members.Insert(index, newItem);
 
-            var args = new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, new List<TreeItem>() { newItem }, index);
+            var args = new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, new List<TreeItem> { newItem }, index);
             this.CollectionChanged(sender, args);
             return newItem;
         }

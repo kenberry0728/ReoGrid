@@ -41,7 +41,7 @@ namespace unvell.ReoGrid.WpfTableEditor.TableEditors.Core
 
             foreach (var menuInfo in menuInfos)
             {
-                var menuItem = new MenuItem()
+                var menuItem = new MenuItem
                 {
                     Header = menuInfo.Header,
                     Command = new DelegateCommand(menuInfo.Command, getParameter)

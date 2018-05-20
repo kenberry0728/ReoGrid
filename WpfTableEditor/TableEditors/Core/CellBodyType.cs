@@ -6,6 +6,7 @@
 //////////////////////////////////////////////////
 
 using System;
+using unvell.ReoGrid.CellTypes;
 
 namespace unvell.ReoGrid.WpfTableEditor.TableEditors.Core
 {
@@ -23,12 +24,12 @@ namespace unvell.ReoGrid.WpfTableEditor.TableEditors.Core
             switch (cellBodyType)
             {
                 case CellBodyType.Button:
-                    return typeof(unvell.ReoGrid.CellTypes.ButtonCell);
+                    return typeof(ButtonCell);
                 case CellBodyType.CheckBox:
-                    return typeof(unvell.ReoGrid.CellTypes.CheckBoxCell);
+                    return typeof(CheckBoxCell);
                 case CellBodyType.Default:
                 default:
-                    return typeof(unvell.ReoGrid.CellTypes.CellBody);
+                    return typeof(CellBody);
             }
         }
     }

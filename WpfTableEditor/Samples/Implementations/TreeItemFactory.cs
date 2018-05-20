@@ -5,11 +5,6 @@
 // http://opensource.org/licenses/mit-license.php
 //////////////////////////////////////////////////
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using unvell.ReoGrid.WpfTableEditor.Samples.Core;
 using unvell.ReoGrid.WpfTableEditor.Samples.Models;
 

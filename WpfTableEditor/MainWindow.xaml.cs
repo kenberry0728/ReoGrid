@@ -37,13 +37,13 @@ namespace unvell.ReoGrid.WpfTableEditor
             {
                 new ColumnHeaderViewModel("Name"),
                 new ColumnHeaderViewModel("Value"),
-                new ColumnHeaderViewModel("Constant", CellBodyType.CheckBox),
+                new ColumnHeaderViewModel("Constant", CellBodyType.CheckBox)
             };
 
             var samples = new[] 
             {
-                new TreeItem() { Name = "Dummy1" },
-                new TreeItem() { Name = "Dummy2" }
+                new TreeItem { Name = "Dummy1" },
+                new TreeItem { Name = "Dummy2" }
             };
 
             var sampleItemFactory = new TreeItemFactory();

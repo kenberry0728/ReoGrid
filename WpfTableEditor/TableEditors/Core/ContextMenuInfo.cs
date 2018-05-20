@@ -6,6 +6,7 @@
 //////////////////////////////////////////////////
 
 using System.Collections.Generic;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace unvell.ReoGrid.WpfTableEditor.TableEditors.Core
@@ -29,5 +30,26 @@ namespace unvell.ReoGrid.WpfTableEditor.TableEditors.Core
         public ICommand Command { get; }
 
         public IEnumerable<ContextMenuInfo> Children { get; set; }
+    }
+
+    public static class ContextMenuInfoExtensions
+    {
+        public static ContextMenu CreateMenu(this IEnumerable<ContextMenuInfo> menuInfos)
+        {
+            var contextMenu = new ContextMenu();
+
+            foreach (var menuInfo in menuInfos)
+            {
+                var menuItem = new MenuItem()
+                {
+                    Header = menuInfo.Header,
+                    Command = menuInfo.Command
+                };
+
+                contextMenu.Items.Add(menuItem);
+            }
+
+            return contextMenu;
+        }
     }
 }

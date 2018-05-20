@@ -22,6 +22,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using unvell.ReoGrid;
 using unvell.ReoGrid.Events;
+using unvell.ReoGrid.WpfTableEditor.TableEditors.Core;
 using WpfTableEditor.TableEditors.ViewModels;
 
 namespace WpfTableEditor.TableEditors
@@ -85,7 +86,7 @@ namespace WpfTableEditor.TableEditors
 
             this.reoGridControl.ContextMenu = contextMenu;
             this.reoGridControl.ColumnHeaderContextMenu = contextMenu;
-            this.reoGridControl.RowHeaderContextMenu = this.viewModel.GetRowHeaderContextMenuInfos();
+            this.reoGridControl.RowHeaderContextMenu = this.viewModel.GetRowHeaderContextMenuInfos().CreateMenu();
             this.reoGridControl.CellsContextMenu = contextMenu;
 
             UpdateCellDataFromViewModel();

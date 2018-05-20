@@ -56,12 +56,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Samples\ViewModels\Commands\InsertCommand.cs" />
+    <Compile Include="Samples\ViewModels\Menus\RowHeaderContextMenuInfoService.cs" />
     <Compile Include="TableEditors\Core\ContextMenuInfo.cs" />
     <Compile Include="TableEditors\ViewModels\Core\ColumnPropertyInfos.cs" />
     <Compile Include="TableEditors\ViewModels\Core\ColumnProperties.cs" />
     <Compile Include="TableEditors\ViewModels\ColumnHeaderViewModel.cs" />
     <Compile Include="TableEditors\Core\CellBodyType.cs" />
     <Compile Include="TableEditors\ViewModels\Core\IColumnProperties.cs" />
+    <Compile Include="TableEditors\ViewModels\Core\IRowHeaderContextMenuInfoService.cs" />
     <Compile Include="TableEditors\ViewModels\IColumnViewModel.cs" />
     <Compile Include="Samples\ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Samples\ViewModels\TreeItemViewModel.cs" />
@@ -121,6 +124,8 @@
       <Name>ReoGrid</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Samples\ViewModels\Commands\Core\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

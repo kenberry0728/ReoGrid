@@ -30,7 +30,7 @@ namespace unvell.ReoGrid.WpfTableEditor.TableEditors.ViewModels.Core
             var notifyPropertyChanged = this.parent as INotifyPropertyChanged;
             if (notifyPropertyChanged != null)
             {
-                notifyPropertyChanged.PropertyChanged += PropertyChanged;
+                notifyPropertyChanged.PropertyChanged += this.PropertyChanged;
             }
         }
 

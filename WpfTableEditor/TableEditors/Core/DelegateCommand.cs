@@ -18,7 +18,7 @@ namespace unvell.ReoGrid.WpfTableEditor.TableEditors.Core
         {
             this.command = command;
             this.getParameter = getParameter;
-            command.CanExecuteChanged += OriginalCanExecuteChanged;
+            command.CanExecuteChanged += this.OriginalCanExecuteChanged;
         }
 
         private void OriginalCanExecuteChanged(object sender, EventArgs e)

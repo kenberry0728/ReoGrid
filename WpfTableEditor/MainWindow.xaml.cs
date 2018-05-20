@@ -35,7 +35,7 @@ namespace WpfTableEditor
     {
         public MainWindow()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
         protected override void OnInitialized(EventArgs e)

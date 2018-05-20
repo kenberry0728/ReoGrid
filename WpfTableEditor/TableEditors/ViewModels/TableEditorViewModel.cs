@@ -32,7 +32,7 @@ namespace WpfTableEditor
             this.ColumnHeaders = (columnHeaders);
             this.ModelService = modelService;
             this.itemViewModelFactory = itemViewModelFactory;
-            this.ModelService.CollectionChanged += CollectionChanged;
+            this.ModelService.CollectionChanged += this.CollectionChanged;
             this.rowHeaderContextMenuInfoService = rowHeaderContextMenuInfoService;
         }
 

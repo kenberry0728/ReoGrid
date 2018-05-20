@@ -31,7 +31,7 @@ namespace unvell.ReoGrid.WpfTableEditor.Samples.ModelServices
 
         public event NotifyCollectionChangedEventHandler CollectionChanged;
 
-        public IEnumerable<TreeItem> Members => members;
+        public IEnumerable<TreeItem> Members => this.members;
 
         public TreeItem InsertNewItem(object sender,int index)
         {

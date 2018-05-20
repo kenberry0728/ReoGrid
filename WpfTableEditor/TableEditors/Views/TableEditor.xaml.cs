@@ -38,7 +38,7 @@ namespace WpfTableEditor.TableEditors
 
         public TableEditor()
         {
-            InitializeComponent();
+            this.InitializeComponent();
 
             this.reoGridControl.SheetTabNewButtonVisible = false;
             this.reoGridControl.SheetTabVisible = false;
@@ -87,11 +87,11 @@ namespace WpfTableEditor.TableEditors
 
             this.reoGridControl.ContextMenu = contextMenu;
             this.reoGridControl.ColumnHeaderContextMenu = contextMenu;
-            this.reoGridControl.RowHeaderContextMenu = this.viewModel.GetRowHeaderContextMenuInfos().CreateMenu(CreateRowHeaderContextMenuParameter);
+            this.reoGridControl.RowHeaderContextMenu = this.viewModel.GetRowHeaderContextMenuInfos().CreateMenu(this.CreateRowHeaderContextMenuParameter);
             this.reoGridControl.CellsContextMenu = contextMenu;
 
-            UpdateAllCellDataFromViewModel();
-            UpdateSubscriptions();
+            this.UpdateAllCellDataFromViewModel();
+            this.UpdateSubscriptions();
         }
 
         private RowHeaderContextMenuParameter CreateRowHeaderContextMenuParameter()
@@ -104,7 +104,7 @@ namespace WpfTableEditor.TableEditors
 
         private void UpdateAllCellDataFromViewModel()
         {
-            this.worksheet.CellDataChanged -= CellDataChanged;
+            this.worksheet.CellDataChanged -= this.CellDataChanged;
 
             for (var i = 0; i < this.viewModel.RootItems.Count; i++)
             {
@@ -115,12 +115,12 @@ namespace WpfTableEditor.TableEditors
                 }
             }
 
-            this.worksheet.CellDataChanged += CellDataChanged;
+            this.worksheet.CellDataChanged += this.CellDataChanged;
         }
 
         private void UpdateCellDataFromViewModel(params int[] updateRows)
         {
-            this.worksheet.CellDataChanged -= CellDataChanged;
+            this.worksheet.CellDataChanged -= this.CellDataChanged;
 
             foreach (var i in updateRows)
             {
@@ -131,7 +131,7 @@ namespace WpfTableEditor.TableEditors
                 }
             }
 
-            this.worksheet.CellDataChanged += CellDataChanged;
+            this.worksheet.CellDataChanged += this.CellDataChanged;
         }
 
 
@@ -156,10 +156,10 @@ namespace WpfTableEditor.TableEditors
             var oldRootItems = this.viewModel.RootItems;
             if (oldRootItems != null)
             {
-                oldRootItems.CollectionChanged -= RootItemsCollectionChanged;
+                oldRootItems.CollectionChanged -= this.RootItemsCollectionChanged;
             }
 
-            this.viewModel.RootItems.CollectionChanged += RootItemsCollectionChanged;
+            this.viewModel.RootItems.CollectionChanged += this.RootItemsCollectionChanged;
 
         }
 

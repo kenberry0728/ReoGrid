@@ -17,7 +17,7 @@ namespace WpfTableEditor
     {
         public MainWindowViewModel(ITableEditorViewModel tableEditorViewModel)
         {
-            TableEditorViewModel = tableEditorViewModel;
+            this.TableEditorViewModel = tableEditorViewModel;
         }
 
         public ITableEditorViewModel TableEditorViewModel { get; }

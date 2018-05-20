@@ -6,11 +6,20 @@
 //////////////////////////////////////////////////
 using System;
 using System.Windows.Input;
+using unvell.ReoGrid.WpfTableEditor.TableEditors.ViewModels.Core;
+using WpfTableEditor.TableEditors.ViewModels;
 
 namespace unvell.ReoGrid.WpfTableEditor.Samples.ViewModels.Commands
 {
     internal class InsertCommand : ICommand
     {
+        private readonly ITableEditorViewModel tableEditorViewModel;
+
+        public InsertCommand(ITableEditorViewModel tableEditorViewModel)
+        {
+            this.tableEditorViewModel = tableEditorViewModel;
+        }
+
         public event EventHandler CanExecuteChanged;
 
         public bool CanExecute(object parameter)
@@ -20,7 +29,7 @@ namespace unvell.ReoGrid.WpfTableEditor.Samples.ViewModels.Commands
 
         public void Execute(object parameter)
         {
-            
+            var parameter = parameter as RowHeaderContextParameter;
         }
     }
 }

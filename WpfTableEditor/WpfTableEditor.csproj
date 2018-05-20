@@ -56,7 +56,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Samples\ViewModels\Commands\InsertCommand.cs" />
+    <Compile Include="Samples\Implementations\TreeItemFactory.cs" />
+    <Compile Include="Samples\ViewModels\Implementations\TreeItemViewModelFactory.cs" />
+    <Compile Include="TableEditors\Core\DelegateCommand.cs" />
+    <Compile Include="TableEditors\Core\IModelService.cs" />
+    <Compile Include="Samples\Core\ITreeItemFactory.cs" />
+    <Compile Include="Samples\Implementations\ModelService.cs" />
+    <Compile Include="Samples\ViewModels\Commands\InsertNewItemCommand.cs" />
     <Compile Include="Samples\ViewModels\Menus\RowHeaderContextMenuInfoService.cs" />
     <Compile Include="TableEditors\Core\ContextMenuInfo.cs" />
     <Compile Include="TableEditors\ViewModels\Core\ColumnPropertyInfos.cs" />
@@ -65,10 +71,12 @@
     <Compile Include="TableEditors\Core\CellBodyType.cs" />
     <Compile Include="TableEditors\ViewModels\Core\IColumnProperties.cs" />
     <Compile Include="TableEditors\ViewModels\Core\IRowHeaderContextMenuInfoService.cs" />
+    <Compile Include="TableEditors\ViewModels\Core\RowHeaderContextMenuParameter.cs" />
     <Compile Include="TableEditors\ViewModels\IColumnViewModel.cs" />
     <Compile Include="Samples\ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Samples\ViewModels\TreeItemViewModel.cs" />
     <Compile Include="Samples\Models\TreeItem.cs" />
+    <Compile Include="TableEditors\ViewModels\Core\IItemViewModelFactory.cs" />
     <Compile Include="TableEditors\ViewModels\ITableEditorViewModel.cs" />
     <Compile Include="TableEditors\ViewModels\ITreeItemViewModel.cs" />
     <Compile Include="TableEditors\Views\TableEditor.xaml.cs">
@@ -124,8 +132,6 @@
       <Name>ReoGrid</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Samples\ViewModels\Commands\Core\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,6 +5,7 @@
 // http://opensource.org/licenses/mit-license.php
 //////////////////////////////////////////////////
 
+using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -34,7 +35,7 @@ namespace unvell.ReoGrid.WpfTableEditor.TableEditors.Core
 
     public static class ContextMenuInfoExtensions
     {
-        public static ContextMenu CreateMenu(this IEnumerable<ContextMenuInfo> menuInfos)
+        public static ContextMenu CreateMenu(this IEnumerable<ContextMenuInfo> menuInfos, Func<object> getParameter)
         {
             var contextMenu = new ContextMenu();
 
@@ -43,7 +44,7 @@ namespace unvell.ReoGrid.WpfTableEditor.TableEditors.Core
                 var menuItem = new MenuItem()
                 {
                     Header = menuInfo.Header,
-                    Command = menuInfo.Command
+                    Command = new DelegateCommand(menuInfo.Command, getParameter)
                 };
 
                 contextMenu.Items.Add(menuItem);

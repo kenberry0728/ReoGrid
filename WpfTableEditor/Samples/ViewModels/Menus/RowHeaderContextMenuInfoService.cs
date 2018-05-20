@@ -12,14 +12,16 @@ using System.Threading.Tasks;
 using unvell.ReoGrid.WpfTableEditor.Samples.ViewModels.Commands;
 using unvell.ReoGrid.WpfTableEditor.TableEditors.Core;
 using unvell.ReoGrid.WpfTableEditor.TableEditors.ViewModels.Core;
+using WpfTableEditor;
+using WpfTableEditor.TableEditors.ViewModels;
 
 namespace unvell.ReoGrid.WpfTableEditor.Samples.ViewModels.Menus
 {
     internal class RowHeaderContextMenuInfoService : IRowHeaderContextMenuInfoService
     {
-        public IEnumerable<ContextMenuInfo> GetRowHeaderContextMenuInfos()
+        public IEnumerable<ContextMenuInfo> GetRowHeaderContextMenuInfos(ITableEditorViewModel tableEditorViewModel)
         {
-            yield return new ContextMenuInfo("Insert", new InsertCommand());
+            yield return new ContextMenuInfo("Insert New Item", new InsertNewItemCommand<TreeItem>(tableEditorViewModel as ITableEditorViewModel<TreeItem>));
         }
     }
 }

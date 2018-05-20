@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using unvell.ReoGrid.WpfTableEditor.Samples.Core;
 using unvell.ReoGrid.WpfTableEditor.TableEditors.Core;
 
 namespace WpfTableEditor.TableEditors.ViewModels
@@ -22,5 +23,10 @@ namespace WpfTableEditor.TableEditors.ViewModels
         IReadOnlyList<IColumnViewModel> ColumnHeaders { get; }
 
         IEnumerable<ContextMenuInfo> GetRowHeaderContextMenuInfos();
+    }
+
+    public interface ITableEditorViewModel<T> : ITableEditorViewModel
+    {
+        IModelService<T> ModelService { get; }
     }
 }

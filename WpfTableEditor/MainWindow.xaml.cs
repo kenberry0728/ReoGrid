@@ -18,6 +18,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using unvell.ReoGrid.WpfTableEditor.Samples.Implementations;
+using unvell.ReoGrid.WpfTableEditor.Samples.ModelServices;
+using unvell.ReoGrid.WpfTableEditor.Samples.ViewModels.Implementations;
+using unvell.ReoGrid.WpfTableEditor.Samples.ViewModels.Menus;
 using unvell.ReoGrid.WpfTableEditor.TableEditors.ViewModels.Core;
 using WpfTableEditor.Samples.ViewModels;
 using WpfTableEditor.TableEditors.ViewModels;
@@ -51,14 +55,23 @@ namespace WpfTableEditor
                 new TreeItem() { Name = "Dummy2" }
             };
 
+            var sampleItemFactory = new TreeItemFactory();
+            var sampleModelService = new ModelService(samples, sampleItemFactory);
+
             var columnPropertyInfos = new ColumnPropertyInfos<TreeItemViewModel>(
                 nameof(TreeItemViewModel.Name),
                 nameof(TreeItemViewModel.Value),
                 nameof(TreeItemViewModel.IsConstant));
 
-            var sampleViewModels = samples.Select(s => new TreeItemViewModel(s, columnPropertyInfos));
+            var sampleViewModelFactory = new TreeItemViewModelFactory(columnPropertyInfos);
+            var sampleViewModels = samples.Select(sampleViewModelFactory.Create);
 
-            var tableEditorViewModel = new TableEditorViewModel(sampleViewModels, culumnHeaderViewModels);
+            var tableEditorViewModel = new TableEditorViewModel<TreeItem>(
+                sampleViewModels,
+                culumnHeaderViewModels,
+                sampleModelService,
+                sampleViewModelFactory,
+                new RowHeaderContextMenuInfoService());
             this.DataContext = new MainWindowViewModel(tableEditorViewModel);
         }
     }

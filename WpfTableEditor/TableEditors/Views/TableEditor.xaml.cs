@@ -23,6 +23,7 @@ using System.Windows.Shapes;
 using unvell.ReoGrid;
 using unvell.ReoGrid.Events;
 using unvell.ReoGrid.WpfTableEditor.TableEditors.Core;
+using unvell.ReoGrid.WpfTableEditor.TableEditors.ViewModels.Core;
 using WpfTableEditor.TableEditors.ViewModels;
 
 namespace WpfTableEditor.TableEditors
@@ -86,14 +87,22 @@ namespace WpfTableEditor.TableEditors
 
             this.reoGridControl.ContextMenu = contextMenu;
             this.reoGridControl.ColumnHeaderContextMenu = contextMenu;
-            this.reoGridControl.RowHeaderContextMenu = this.viewModel.GetRowHeaderContextMenuInfos().CreateMenu();
+            this.reoGridControl.RowHeaderContextMenu = this.viewModel.GetRowHeaderContextMenuInfos().CreateMenu(CreateRowHeaderContextMenuParameter);
             this.reoGridControl.CellsContextMenu = contextMenu;
 
-            UpdateCellDataFromViewModel();
+            UpdateAllCellDataFromViewModel();
             UpdateSubscriptions();
         }
 
-        private void UpdateCellDataFromViewModel()
+        private RowHeaderContextMenuParameter CreateRowHeaderContextMenuParameter()
+        {
+            return new RowHeaderContextMenuParameter()
+            {
+                Index = this.worksheet.SelectionRange.Row
+            };
+        }
+
+        private void UpdateAllCellDataFromViewModel()
         {
             this.worksheet.CellDataChanged -= CellDataChanged;
 
@@ -108,6 +117,24 @@ namespace WpfTableEditor.TableEditors
 
             this.worksheet.CellDataChanged += CellDataChanged;
         }
+
+        private void UpdateCellDataFromViewModel(params int[] updateRows)
+        {
+            this.worksheet.CellDataChanged -= CellDataChanged;
+
+            foreach (var i in updateRows)
+            {
+                var item = this.viewModel.RootItems[i];
+                for (int j = 0; j < item.ColomnProperties.Count; j++)
+                {
+                    this.worksheet[i, j] = item.ColomnProperties[j];
+                }
+            }
+
+            this.worksheet.CellDataChanged += CellDataChanged;
+        }
+
+
 
         private static void SetColumnHeaderProperties(ColumnHeader columnHeader, IColumnViewModel columnHeaderViewModel)
         {
@@ -141,6 +168,9 @@ namespace WpfTableEditor.TableEditors
             switch (e.Action)
             {
                 case NotifyCollectionChangedAction.Add:
+                    this.worksheet.InsertRows(e.NewStartingIndex, 1);
+                    this.UpdateCellDataFromViewModel(e.NewStartingIndex);
+                    break;
                 case NotifyCollectionChangedAction.Remove:
                 case NotifyCollectionChangedAction.Replace:
                 case NotifyCollectionChangedAction.Move:

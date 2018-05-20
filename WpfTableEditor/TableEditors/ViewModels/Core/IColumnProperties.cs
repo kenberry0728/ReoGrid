@@ -9,7 +9,9 @@ namespace unvell.ReoGrid.WpfTableEditor.TableEditors.ViewModels.Core
 {
     public interface IColumnProperties
     {
-        object this[int i] { get; set; }
+        object this[int i] { get; }
+
+        void SetValue(object sender, int index, object value);
 
         int Count { get; }
     }

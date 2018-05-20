@@ -39,6 +39,11 @@ namespace unvell.ReoGrid.WpfTableEditor.TableEditors.ViewModels.Core
             
         }
 
+        public void SetValue(object sender, int index, object value)
+        {
+            throw new NotImplementedException();
+        }
+
         public object this[int i]
         {
             get { return this.columnPropertyInfos.PropertyInfos[i].GetValue(this.parent); }

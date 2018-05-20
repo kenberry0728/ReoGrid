@@ -6,12 +6,13 @@
 //////////////////////////////////////////////////
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using unvell.ReoGrid.WpfTableEditor.TableEditors.ViewModels.Core;
 using WpfTableEditor.TableEditors.ViewModels;
 
 namespace WpfTableEditor
 {
-    internal class TreeItemViewModel : ITreeItemViewModel
+    internal class TreeItemViewModel : ITreeItemViewModel, INotifyPropertyChanged
     {
         private readonly TreeItem model;
 
@@ -68,5 +69,12 @@ namespace WpfTableEditor
         }
 
         public IColumnProperties ColomnProperties { get; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        void onpc()
+        {
+            PropertyChanged()
+        }
     }
 }

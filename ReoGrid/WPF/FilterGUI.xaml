@@ -12,8 +12,8 @@
             <RowDefinition Height="Auto"/>
             <!--<RowDefinition Height="*"/>-->
         </Grid.RowDefinitions>
-        <Button Grid.Row ="0" Content="A to Z" PreviewMouseLeftButtonDown="AtoZButtonClick"></Button>
-        <Button Grid.Row="1" Content="Z to A" PreviewMouseLeftButtonDown="ZtoAButtonClick"></Button>
+        <Button Grid.Row ="0" Content="Sort A to Z" PreviewMouseLeftButtonDown="AtoZButtonClick"></Button>
+        <Button Grid.Row="1" Content="Sort Z to A" PreviewMouseLeftButtonDown="ZtoAButtonClick"></Button>
         <!--<ListBox ItemsSource="{Binding Items}">
             <ListBox.ItemTemplate>
                 <DataTemplate>

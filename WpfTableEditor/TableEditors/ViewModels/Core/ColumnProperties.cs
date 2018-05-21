@@ -32,7 +32,7 @@ namespace unvell.ReoGrid.WpfTableEditor.TableEditors.ViewModels.Core
 
         private void PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            
+            // TODO next
         }
 
         public object this[int i]

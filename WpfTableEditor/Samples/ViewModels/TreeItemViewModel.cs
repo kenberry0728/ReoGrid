@@ -6,24 +6,31 @@
 //////////////////////////////////////////////////
 
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using unvell.ReoGrid.WpfTableEditor.Annotations;
 using unvell.ReoGrid.WpfTableEditor.Samples.Models;
 using unvell.ReoGrid.WpfTableEditor.TableEditors.ViewModels;
 using unvell.ReoGrid.WpfTableEditor.TableEditors.ViewModels.Core;
 
 namespace unvell.ReoGrid.WpfTableEditor.Samples.ViewModels
 {
-    internal class TreeItemViewModel : ITreeItemViewModel
+    internal class TreeItemViewModel : ITreeItemViewModel, INotifyPropertyChanged
     {
         private readonly TreeItem model;
 
         public TreeItemViewModel(
             TreeItem model,
-            ColumnPropertyInfos<TreeItemViewModel> columnPropertyInfos)
+            ColumnPropertyInfos<TreeItemViewModel> columnPropertyInfos,
+            ITreeItemViewModel parent = null)
         {
+            this.Parent = parent;
             this.Children = new ObservableCollection<ITreeItemViewModel>();
             this.model = model;
             this.ColomnProperties = new ColumnProperties<TreeItemViewModel>(this, columnPropertyInfos);
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public ITreeItemViewModel Parent { get; }
 
@@ -39,6 +46,7 @@ namespace unvell.ReoGrid.WpfTableEditor.Samples.ViewModels
             set
             {
                 this.model.Name = value;
+                this.OnPropertyChanged(nameof(this.Name));
             }
         }
 
@@ -52,6 +60,8 @@ namespace unvell.ReoGrid.WpfTableEditor.Samples.ViewModels
             set
             {
                 this.model.Value = value;
+                this.OnPropertyChanged(nameof(this.Value));
+
             }
         }
 
@@ -65,9 +75,17 @@ namespace unvell.ReoGrid.WpfTableEditor.Samples.ViewModels
             set
             {
                 this.model.IsConstant = value;
+                this.OnPropertyChanged(nameof(this.IsConstant));
+
             }
         }
 
         public IColumnProperties ColomnProperties { get; }
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

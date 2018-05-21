@@ -56,6 +56,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Samples\Implementations\TreeItemFactory.cs" />
     <Compile Include="Samples\ViewModels\Implementations\TreeItemViewModelFactory.cs" />
     <Compile Include="TableEditors\Core\DelegateCommand.cs" />

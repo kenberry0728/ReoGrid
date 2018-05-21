@@ -64,6 +64,7 @@ namespace unvell.ReoGrid.WpfTableEditor.TableEditors.Views
             this.worksheet.Rows = this.viewModel.RootItems.Count;
             this.worksheet.Columns = this.viewModel.ColumnHeaders.Count;
 
+            this.worksheet.CreateColumnFilter(0, this.viewModel.ColumnHeaders.Count - 1);
             for (var i = 0; i < this.viewModel.ColumnHeaders.Count; i++)
             {
                 SetColumnHeaderProperties(this.worksheet.ColumnHeaders[i], this.viewModel.ColumnHeaders[i]);

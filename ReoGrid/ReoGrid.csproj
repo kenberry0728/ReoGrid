@@ -447,6 +447,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WinForm\Designer\WorkbookEditor.cs" />
     <Compile Include="WPF\FilterGUI.cs" />
+    <Compile Include="WPF\FilterGUI.xaml.cs">
+      <DependentUpon>FilterGUI.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WPF\Platform.cs" />
     <Compile Include="WPF\Renderer.cs" />
     <Compile Include="WPF\SheetTabControl.cs" />
@@ -573,7 +576,12 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Page Include="WPF\FilterGUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

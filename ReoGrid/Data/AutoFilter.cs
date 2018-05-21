@@ -562,11 +562,25 @@ namespace unvell.ReoGrid.Data
 #if WINFORM
 				unvell.ReoGrid.WinForm.ColumnFilterContextMenu.ShowFilterPanel(headerBody, (System.Drawing.Point)point);
 #elif WPF
-				var ctx = new System.Windows.Controls.ContextMenu();
-				ctx.Items.Add(new System.Windows.Controls.MenuItem() { Header = "Item" });
-				ctx.IsOpen = true;
+                var popup = new System.Windows.Controls.Primitives.Popup()
+                {
+                    Child = new WPF.FilterGUI(headerBody),
+                    Placement = System.Windows.Controls.Primitives.PlacementMode.Mouse,
+                    IsOpen = true,
+                    StaysOpen = true
+                };
+                popup.Child.Focus();
+                System.Windows.DependencyPropertyChangedEventHandler handler = null;
+                handler = (x, y) =>
+                {
+                    popup.IsOpen = false;
+                    popup.StaysOpen = false;
+                    popup.IsKeyboardFocusWithinChanged -= handler;
+                };
+                popup.IsKeyboardFocusWithinChanged += handler;
+
 #endif // WPF
-				return true;
+                return true;
 			}
 
 			return false;

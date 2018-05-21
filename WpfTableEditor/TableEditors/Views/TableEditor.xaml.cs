@@ -110,23 +110,26 @@ namespace unvell.ReoGrid.WpfTableEditor.TableEditors.Views
             this.worksheet.CellDataChanged += this.CellDataChanged;
         }
 
-        private void UpdateCellDataFromViewModel(params int[] updateRows)
+        private void UpdateCellDataFromViewModel(int startRow, int rows)
         {
             this.worksheet.CellDataChanged -= this.CellDataChanged;
 
-            foreach (var i in updateRows)
+            var value = new object[rows, this.viewModel.ColumnHeaders.Count];
+            for (int i =0; i < rows; i++)
             {
-                var item = this.viewModel.RootItems[i];
+                var item = this.viewModel.RootItems[startRow + i];
                 for (int j = 0; j < item.ColomnProperties.Count; j++)
                 {
-                    this.worksheet[i, j] = item.ColomnProperties[j];
+                    value[i, j] = item.ColomnProperties[j];
                 }
             }
 
+            this.worksheet.SetRangeData(
+                new RangePosition(startRow, 0, rows, this.viewModel.ColumnHeaders.Count),
+                value);
+
             this.worksheet.CellDataChanged += this.CellDataChanged;
         }
-
-
 
         private static void SetColumnHeaderProperties(ColumnHeader columnHeader, IColumnViewModel columnHeaderViewModel)
         {
@@ -152,7 +155,6 @@ namespace unvell.ReoGrid.WpfTableEditor.TableEditors.Views
             }
 
             this.viewModel.RootItems.CollectionChanged += this.RootItemsCollectionChanged;
-
         }
 
         private void RootItemsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)

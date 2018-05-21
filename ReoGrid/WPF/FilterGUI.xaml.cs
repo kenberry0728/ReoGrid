@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -25,13 +26,13 @@ namespace unvell.ReoGrid.WPF
     /// <summary>
     /// Interaction logic for FilterGUI.xaml
     /// </summary>
-    public partial class FilterGUI : UserControl
+    public partial class ColumnFilterContextMenu : UserControl
     {
         private readonly AutoColumnFilterBody headerBody;
 
-        public FilterGUI(AutoColumnFilterBody headerBody)
+        private ColumnFilterContextMenu(AutoColumnFilterBody headerBody)
         {
-            InitializeComponent();
+            this.InitializeComponent();
             this.headerBody = headerBody;
         }
         
@@ -45,6 +46,42 @@ namespace unvell.ReoGrid.WPF
         {
             var worksheet = this.headerBody.ColumnHeader.Worksheet;
             worksheet.SortColumn(headerBody.ColumnHeader.Index, headerBody.autoFilter.ApplyRange, SortOrder.Descending);
+        }
+
+        private static Popup popupSingleton;
+
+        internal static void ShowFilterPanel(
+            AutoColumnFilterBody headerBody,
+            Point point)
+        {
+            if (popupSingleton != null)
+            {
+                popupSingleton.IsOpen = false;
+                popupSingleton.StaysOpen = false;
+                popupSingleton = null;
+            }
+
+            var popup = new Popup
+            {
+                Child = new ColumnFilterContextMenu(headerBody),
+                Placement = PlacementMode.Mouse,
+                IsOpen = true,
+                StaysOpen = true
+            };
+
+            // TODO : CLose when click outside
+            popup.Child.Focus();
+            DependencyPropertyChangedEventHandler handler = null;
+            handler = (x, y) =>
+            {
+                popup.IsOpen = false;
+                popup.StaysOpen = false;
+                popup.IsKeyboardFocusWithinChanged -= handler;
+                popupSingleton = null;
+            };
+
+            popup.IsKeyboardFocusWithinChanged += handler;
+            popupSingleton = popup;
         }
     }
 }

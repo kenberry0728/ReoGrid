@@ -93,14 +93,19 @@ namespace unvell.ReoGrid.WpfTableEditor.TableEditors.Views
         {
             this.worksheet.CellDataChanged -= this.CellDataChanged;
 
+            var data = new object[this.viewModel.RootItems.Count, this.viewModel.ColumnHeaders.Count];
             for (var i = 0; i < this.viewModel.RootItems.Count; i++)
             {
                 var item = this.viewModel.RootItems[i];
                 for (int j = 0; j < item.ColomnProperties.Count; j++)
                 {
-                    this.worksheet[i, j] = item.ColomnProperties[j];
+                    data[i, j] = item.ColomnProperties[j];
                 }
             }
+
+            this.worksheet.SetRangeData(
+                new RangePosition(0, 0, this.viewModel.RootItems.Count, this.viewModel.ColumnHeaders.Count),
+                data);
 
             this.worksheet.CellDataChanged += this.CellDataChanged;
         }

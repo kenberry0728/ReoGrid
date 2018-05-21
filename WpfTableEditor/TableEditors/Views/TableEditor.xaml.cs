@@ -32,6 +32,7 @@ namespace unvell.ReoGrid.WpfTableEditor.TableEditors.Views
             this.reoGridControl.SheetTabNewButtonVisible = false;
             this.reoGridControl.SheetTabVisible = false;
             this.worksheet = this.reoGridControl.Worksheets[0];
+            this.worksheet.RowsFiltered += OnRowsFilterd;
 
             this.DataContextChanged += this.OnDataContextChanged;
         }
@@ -173,6 +174,11 @@ namespace unvell.ReoGrid.WpfTableEditor.TableEditors.Views
                 case NotifyCollectionChangedAction.Reset:
                     throw new NotImplementedException();
             }
+        }
+
+        private void OnRowsFilterd(object sender, EventArgs eventArgs)
+        {
+            // TODO:
         }
     }
 }

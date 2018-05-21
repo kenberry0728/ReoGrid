@@ -162,8 +162,8 @@ namespace unvell.ReoGrid.WpfTableEditor.TableEditors.Views
             switch (e.Action)
             {
                 case NotifyCollectionChangedAction.Add:
-                    this.worksheet.InsertRows(e.NewStartingIndex, 1);
-                    this.UpdateCellDataFromViewModel(e.NewStartingIndex);
+                    this.worksheet.InsertRows(e.NewStartingIndex, e.NewItems.Count);
+                    this.UpdateCellDataFromViewModel(e.NewStartingIndex, e.NewItems.Count);
                     break;
                 case NotifyCollectionChangedAction.Remove:
                 case NotifyCollectionChangedAction.Replace:

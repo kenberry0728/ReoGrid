@@ -34,8 +34,6 @@ namespace unvell.ReoGrid.WpfTableEditor.TableEditors.Views
             this.worksheet = this.reoGridControl.Worksheets[0];
 
             this.DataContextChanged += this.OnDataContextChanged;
-
-            //this.worksheet.InsertRows()
         }
 
         private void CellDataChanged(object sender, CellEventArgs e)
